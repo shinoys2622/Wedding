@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shinoy & Jini - Wedding</title>
+  <!-- Materialize CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Tenor+Sans&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="boho-styles.css" />
+</head>
+<body>
+  
+  <div class="hero">
+    <div class="cityscape"></div>
+    <div class="header-content">
+      <h1>SHINOY & JINI</h1>
+      <p class="wedding-date">SEPTEMBER 8, 2025</p>
+      <p class="wedding-location">KOCHI, KERALA, INDIA</p>
+      <p class="countdown">60 DAYS TO GO!</p>
+    </div>
+  </div>
+
+
+  <section class="venues container">
+     <div class="row"><br/><br/></div>
+    <div class="row">
+      <div class="col s12 m6">
+        <div class="card rounded">
+          <div class="card-content center-align">
+            <span class="card-title">Ceremony</span>
+            <p class="venue-name">St. Mary's Church</p>
+            <p class="time">2:00 PM</p>
+            <div class="center-align">
+              <a href="https://g.co/kgs/85xti7S" target="_blank" class="btn-flat waves-effect">
+                <i class="material-icons">place</i>View Map
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col s12 m6">
+        <div class="card rounded">
+          <div class="card-content center-align">
+            <span class="card-title">Reception</span>
+            <p class="venue-name">Grand Winterberry Auditorium</p>
+            <p class="time">5:00 PM</p>
+            <div class="center-align">
+              <a href="https://g.co/kgs/VEVutMe" target="_blank" class="btn-flat waves-effect">
+                <i class="material-icons">place</i>View Map
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row"><br/></div>
+  </section>
+
+  <footer class="page-footer grey lighten-4">
+    <div class="container">
+      <div class="row center-align">
+        <div class="col s12">
+          <h5 class="grey-text text-darken-3">Shinoy & Jini</h5>
+          <p class="grey-text">September 8, 2025</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Materialize JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="script.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const nav = document.querySelector('.nav-wrapper');
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+          nav.classList.add('scrolled');
+        } else {
+          nav.classList.remove('scrolled');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
