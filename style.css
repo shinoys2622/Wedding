@@ -479,6 +479,13 @@ body {
   position: absolute;
   left: 50%;
   top: 80%;
+  width: 200px;
+  height: 200px;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
 body {
   margin: 0;
   font-family: 'Segoe UI', 'Arial', sans-serif;
@@ -686,7 +693,6 @@ footer {
 @keyframes confettiDrop {
   0% { top: -20px; opacity: 0.9; }
   100% { top: 100vh; opacity: 0; }
-}
 }
 .venue:hover {
   transform: translateY(-10px) scale(1.03);

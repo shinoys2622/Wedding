@@ -101,7 +101,8 @@ function createFlower() {
 
   document.querySelector('.falling-flowers').appendChild(flower);
 
-  setTimeout(() => flower.remove(), 9000);
+  const duration = parseInt(flower.style.animationDuration);
+  setTimeout(() => flower.remove(), duration * 1000);
 }
 
 // Create flowers at intervals
