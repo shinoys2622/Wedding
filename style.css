@@ -19,8 +19,27 @@
 }
 .library-card > .front {
   background: radial-gradient(circle at 50% 0, #fff 60%, #e0d6eb 100%);
-  border-radius: 2px 2px 3px 3px;
-  box-shadow: 0 -2px 3px hsla(0,0%,0%,0.1);
+  border-radius: 2px 2px 3px @keyframes buttonThump {
+  0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4); }
+  70% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(255, 255, 255, 0); }
+  100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
+}
+
+@keyframes heartThump {
+  0% { transform: scale(1); }
+  25% { transform: scale(1.1); }
+  35% { transform: scale(0.9); }
+  45% { transform: scale(1.2); }
+  55% { transform: scale(0.95); }
+  65% { transform: scale(1); }
+  100% { transform: scale(1); }
+}
+
+@keyframes heartThumpHover {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.3); }
+  100% { transform: scale(1); }
+}  box-shadow: 0 -2px 3px hsla(0,0%,0%,0.1);
   cursor: pointer;
   height: 350px;
   width: 300px;
@@ -551,9 +570,25 @@ body {
   animation: pulse 2s infinite;
 }
 
-@keyframes pulse {
+@keyframes buttonThump {
+  0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4); }
+  70% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(255, 255, 255, 0); }
+  100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
+}
+
+@keyframes heartThump {
   0% { transform: scale(1); }
-  50% { transform: scale(1.05); }
+  25% { transform: scale(1.1); }
+  35% { transform: scale(0.9); }
+  45% { transform: scale(1.2); }
+  55% { transform: scale(0.95); }
+  65% { transform: scale(1); }
+  100% { transform: scale(1); }
+}
+
+@keyframes heartThumpHover {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.3); }
   100% { transform: scale(1); }
 }
 
@@ -618,6 +653,10 @@ body {
 .welcome-content {
   text-align: center;
   color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .welcome-content h2 {
@@ -636,27 +675,33 @@ body {
   background: transparent;
   border: 2px solid white;
   border-radius: 50%;
-  width: 60px;
-  height: 60px;
+  width: 70px;
+  height: 70px;
   cursor: pointer;
   transition: all 0.3s ease;
   display: flex;
   align-items: center;
   justify-content: center;
+  margin: 0 auto;
+  transform: scale(1);
+  animation: buttonThump 1.5s infinite cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .enter-btn i {
   color: white;
-  font-size: 30px;
-  animation: pulse 1.5s infinite;
+  font-size: 35px;
+  animation: heartThump 1.5s infinite cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .enter-btn:hover {
   background: white;
+  animation: none;
+  transform: scale(1.1);
 }
 
 .enter-btn:hover i {
   color: #b44b77;
+  animation: heartThumpHover 0.8s infinite cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .music-control {
