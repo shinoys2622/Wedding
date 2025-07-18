@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="boho-styles.css" />
 </head>
 <body>
-  
+  <div class="falling-flowers"></div>
   <div class="hero">
     <div class="cityscape"></div>
     <div class="header-content">
@@ -85,6 +85,27 @@
         }
       });
     });
+
+function createFlower() {
+  const flower = document.createElement('div');
+  flower.classList.add('flower');
+  flower.innerText = Math.random() > 0.5 ? '🌸' : '🌼'; // alternate between flowers
+
+  const side = Math.random();
+  flower.style.left = side < 0.5
+    ? `${Math.random() * 15}vw`         // Left side 0–15vw
+    : `${85 + Math.random() * 15}vw`;   // Right side 85–100vw
+
+  flower.style.animationDuration = `${4 + Math.random() * 4}s`;
+  flower.style.fontSize = `${20 + Math.random() * 20}px`;
+
+  document.querySelector('.falling-flowers').appendChild(flower);
+
+  setTimeout(() => flower.remove(), 9000);
+}
+
+// Create flowers at intervals
+setInterval(createFlower, 300);
   </script>
 </body>
 </html>
