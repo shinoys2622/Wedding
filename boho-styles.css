@@ -68,7 +68,8 @@
   backdrop-filter: blur(4px);
   border: 1px solid rgba(180, 75, 119, 0.1);
   transform: translateY(0);
-  transition: all 0.3s ease;
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform, box-shadow;
 }
 
 .card.rounded:hover,
@@ -89,9 +90,9 @@
   padding: 2.5rem 2rem;
 }
 
-.venues .card-content:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 12px 48px rgba(180, 75, 119, 0.25);
+.venues .card.rounded:hover {
+  transform: translateY(-12px) scale(1.02);
+  box-shadow: 0 20px 60px rgba(180, 75, 119, 0.2);
 }
 
 .venues .card-title {

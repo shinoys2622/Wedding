@@ -12,14 +12,31 @@
   <link rel="stylesheet" href="boho-styles.css" />
 </head>
 <body>
+  <div class="welcome-overlay" id="welcomeOverlay">
+    <div class="welcome-content">
+      <h2>Welcome to Our Wedding</h2>
+      <p>Click to enter with music</p>
+      <button class="enter-btn" onclick="enterSite()">
+        <i class="material-icons">favorite</i>
+      </button>
+    </div>
+  </div>
+  <div class="music-control">
+    <button class="music-btn playing" onclick="toggleMusic()">
+      <i class="material-icons">music_note</i>
+    </button>
+    <audio id="bgMusic" loop autoplay>
+      <source src="music.mp3" type="audio/mpeg">
+    </audio>
+  </div>
   <div class="falling-flowers"></div>
   <div class="hero">
     <div class="cityscape"></div>
     <div class="header-content">
-      <h1>SHINOY & JINI</h1>
+      <h1><span>SHINOY</span> <span class="heart">❤</span> <span>JINI</span></h1>
       <p class="wedding-date">SEPTEMBER 8, 2025</p>
-      <p class="wedding-location">KOCHI, KERALA, INDIA</p>
-      <p class="countdown">60 DAYS TO GO!</p>
+      <p class="wedding-location">KOCHI, KERALA</p>
+      <p class="countdown"></p>
     </div>
   </div>
 
@@ -76,14 +93,7 @@
   <script src="script.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      const nav = document.querySelector('.nav-wrapper');
-      window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-          nav.classList.add('scrolled');
-        } else {
-          nav.classList.remove('scrolled');
-        }
-      });
+      // Removed scroll event listener
     });
 
 function createFlower() {
@@ -107,6 +117,63 @@ function createFlower() {
 
 // Create flowers at intervals
 setInterval(createFlower, 300);
+
+// Welcome screen and music control
+function enterSite() {
+  const audio = document.getElementById('bgMusic');
+  const btn = document.querySelector('.music-btn');
+  const welcomeOverlay = document.getElementById('welcomeOverlay');
+  
+  // Start playing music
+  audio.play().then(() => {
+    btn.classList.add('playing');
+    // Fade out welcome screen
+    welcomeOverlay.style.opacity = '0';
+    setTimeout(() => {
+      welcomeOverlay.style.display = 'none';
+    }, 1000);
+  });
+}
+
+// Music control
+document.addEventListener('DOMContentLoaded', function() {
+  const audio = document.getElementById('bgMusic');
+  const btn = document.querySelector('.music-btn');
+  
+  // Set initial button state
+  btn.classList.add('playing');
+  
+  // Try to play automatically
+  audio.volume = 0.5; // Set a comfortable default volume
+  const playPromise = audio.play();
+  
+  if (playPromise !== undefined) {
+    playPromise.catch(error => {
+      // Auto-play was prevented
+      btn.classList.remove('playing');
+    });
+  }
+});
+
+function toggleMusic() {
+  const audio = document.getElementById('bgMusic');
+  const btn = document.querySelector('.music-btn');
+  
+  if (audio.paused) {
+    const playPromise = audio.play();
+    if (playPromise !== undefined) {
+      playPromise.then(() => {
+        btn.classList.add('playing');
+      }).catch(error => {
+        // Play was prevented
+        btn.classList.remove('playing');
+      });
+    }
+  } else {
+    audio.pause();
+    btn.classList.remove('playing');
+  }
+}
   </script>
 </body>
 </html>
