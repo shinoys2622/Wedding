@@ -19,229 +19,6 @@
 }
 .library-card > .front {
   background: radial-gradient(circle at 50% 0, #fff 60%, #e0d6eb 100%);
-  border-radius: 2px 2px 3px @keyframes buttonThump {
-  0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4); }
-  70% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(255, 255, 255, 0); }
-  100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
-}
-
-@keyframes heartThump {
-  0% { transform: scale(1); }
-  25% { transform: scale(1.1); }
-  35% { transform: scale(0.9); }
-  45% { transform: scale(1.2); }
-  55% { transform: scale(0.95); }
-  65% { transform: scale(1); }
-  100% { transform: scale(1); }
-}
-
-@keyframes heartThumpHover {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.3); }
-  100% { transform: scale(1); }
-}  box-shadow: 0 -2px 3px hsla(0,0%,0%,0.1);
-  cursor: pointer;
-  height: 350px;
-  width: 300px;
-  position: relative;
-  z-index: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.library-card > .card {
-  background-color: #f0f0f0;
-  border-radius: 3px;
-  box-shadow: 0 0 0.2em hsla(0,0%,0%,0.5);
-  height: 450px;
-  margin-left: -5px;
-  position: absolute;
-  top: -60px;
-  width: 290px;
-  backface-visibility: hidden;
-  transform: rotate(1deg);
-  z-index: 2;
-  padding-bottom: 1.5rem;
-}
-.envelope.card-out > .card {
-  box-shadow: 0 0 0.6em hsla(0,0%,0%,0.5);
-  animation: card-pull 1s 1;
-  transform: rotate(-5deg);
-  z-index: 2;
-}
-.envelope.card-in > .card {
-  box-shadow: 0 0 0.6em hsla(0,0%,0%,0.5);
-  animation: card-in 1s 1;
-  z-index: 0;
-}
-@keyframes card-pull {
-  0% { box-shadow: 0 0 0.2em hsla(0,0%,0%,0.5); top: -60px; transform: rotate(1deg); z-index: 0; }
-  50% { box-shadow: 0 0 0.2em hsla(0,0%,0%,0.5); top: -400px; transform: rotate(-1deg); z-index: 0; }
-  100% { box-shadow: 0 0 0.6em hsla(0,0%,0%,0.5); top: -60px; transform: rotate(-5deg); z-index: 2; }
-}
-@keyframes card-in {
-  0% { box-shadow: 0 0 0.6em hsla(0,0%,0%,0.5); top: -60px; transform: rotate(-5deg); z-index: 2; }
-  50% { box-shadow: 0 0 0.2em hsla(0,0%,0%,0.5); top: -400px; transform: rotate(-1deg); z-index: 2; }
-  55% { z-index: 0; }
-  100% { box-shadow: 0 0 0.2em hsla(0,0%,0%,0.5); top: -60px; transform: rotate(1deg); z-index: 0; }
-}
-.library-card .card {
-  line-height: 36px;
-}
-.library-card .stamp {
-  color: #b44b77;
-  font-family: Futura, sans-serif;
-  font-size: 16px;
-  position: relative;
-  top: 100px;
-  text-align: center;
-}
-.library-card .dewey-decimal {
-  float: left;
-  height: 106px;
-  padding-left: 10px;
-  width: 60px;
-}
-.library-card .title {
-  margin-right: 75px;
-  line-height: 18px;
-  text-align: center;
-}
-.library-card table {
-  clear: left;
-  width: 100%;
-  border-collapse: collapse;
-  margin-bottom: 0.5rem;
-}
-.library-card th {
-  font-family: Futura, sans-serif;
-  font-size: 10px;
-  text-align: center;
-  text-transform: uppercase;
-}
-.library-card .due-date {
-  padding: 0 2px;
-  width: 61px;
-}
-.library-card td.due-date {
-  color: #af0000;
-  font-size: 12px;
-  font-weight: bold;
-  position: relative;
-  transform: rotate(1deg);
-}
-.library-card tr:nth-child(2) td.due-date {
-  transform: rotate(-3deg);
-}
-.library-card tr:nth-child(3) td.due-date {
-  transform: rotate(5deg); right: -7px;
-}
-.library-card .issued-to {
-  padding: 0 5px;
-  width: 210px;
-}
-.library-card td.issued-to {
-  font-family: 'Shadows Into Light', cursive;
-  font-size: 32px;
-}
-.library-card tr:nth-child(2) td.issued-to {
-  font-family: 'Handlee', cursive;
-  font-size: 24px;
-}
-.library-card tr:nth-child(3) td.issued-to {
-  font-family: 'Give You Glory', cursive;
-  font-size: 24px;
-  transform: rotate(1deg);
-}
-.form-label {
-  text-align: right;
-}
-#rsvp-form {
-  position: absolute;
-  top: 254px;
-  left: 85px;
-  display: flex;
-  flex-direction: column;
-  gap: 0.3rem;
-}
-#rsvp-form input, #rsvp-form select {
-  border: none;
-  background: rgba(255,255,255,0.7);
-  height: 28px;
-  width: 180px;
-  margin-bottom: 2px;
-  border-radius: 6px;
-  padding-left: 8px;
-  font-size: 1rem;
-}
-#rsvp-form .submit {
-  cursor: pointer;
-  text-align: center;
-  letter-spacing: 2px;
-  font-family: monospace;
-  font-size: 120%;
-  margin-left: 0;
-  color: #b44b77;
-  border: 2px solid #b44b77;
-  border-radius: 10px;
-  width: 120px;
-  background-color: #fff6faee;
-  align-self: center;
-  margin-top: 0.5rem;
-  transition: background 0.2s, color 0.2s;
-}
-#rsvp-form .submit:hover {
-  background: #b44b77;
-  color: #fff;
-}
-.winterberry-address {
-  font-size: 0.95rem;
-  color: #b44b77;
-  margin-bottom: 0.5rem;
-  text-align: left;
-  padding-left: 10px;
-}
-@media (max-width: 700px) {
-  .library-card {
-    right: 0.5vw;
-    bottom: 0.5vw;
-    width: 98vw;
-    max-width: 320px;
-    min-width: 220px;
-    height: 220px;
-    font-size: 0.9rem;
-  }
-  .library-card > .front, .library-card > .card {
-    width: 98vw;
-    max-width: 320px;
-    min-width: 220px;
-  }
-  #rsvp-form {
-    left: 10px;
-    width: 90vw;
-  }
-}
-/* RSVP Library Card Styles */
-.library-card {
-  font-family: monospace;
-  transform: rotate(3deg);
-  z-index: 100;
-  position: fixed;
-  right: 2vw;
-  bottom: 2vw;
-  width: 290px;
-  height: 300px;
-  transition: box-shadow 0.3s, transform 0.3s;
-  box-shadow: 0 0 1px hsla(0,0%,0%,0.5);
-}
-.library-card.envelope {
-  background-color: #f7e7f7;
-  border-radius: 3px;
-  box-shadow: 0 0 1px hsla(0,0%,0%,0.5);
-  padding-top: 50px;
-}
-.library-card > .front {
-  background: radial-gradient(circle at 50% 0, #fff 60%, #e0d6eb 100%);
   border-radius: 2px 2px 3px 3px;
   box-shadow: 0 -2px 3px hsla(0,0%,0%,0.1);
   cursor: pointer;
@@ -866,24 +643,30 @@ footer {
   z-index: 1;
 }
 
-/* Confetti and berry animation */
-.confetti, .berry {
+/* Rose petals animation */
+.falling-petals-container {
   position: fixed;
-  top: -20px;
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-  opacity: 0.85;
-  z-index: 10;
   pointer-events: none;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 100;
 }
-.berry {
-  box-shadow: 0 0 8px #b44b77aa;
-  border: 2px solid #fff;
-  animation: berryDrop 3.5s linear forwards;
-}
-.confetti {
-  animation: confettiDrop 2.5s linear forwards;
+
+.rose-petal {
+  position: fixed;
+  width: 25px;
+  height: 20px;
+  background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+  border-radius: 50% 10% 50% 10%;
+  opacity: 0.85;
+  pointer-events: none;
+  box-shadow: 0 2px 8px rgba(180, 75, 119, 0.3);
+  animation: petalFall 8s ease-in forwards;
+  transform-origin: center;
+  will-change: transform;
 }
 
 @media (max-width: 700px) {
@@ -940,14 +723,27 @@ footer {
   80% { opacity: 1; transform: scale(1.05) translateY(-8px); }
   100% { opacity: 1; transform: scale(1) translateY(0); }
 }
-@keyframes berryDrop {
-  0% { top: -20px; opacity: 0.9; }
-  80% { opacity: 1; }
-  100% { top: 100vh; opacity: 0; }
-}
-@keyframes confettiDrop {
-  0% { top: -20px; opacity: 0.9; }
-  100% { top: 100vh; opacity: 0; }
+@keyframes petalFall {
+  0% {
+    transform: translateY(-5vh) rotate(0deg);
+    opacity: 0.9;
+  }
+  25% {
+    transform: translateY(25vh) translateX(100px) rotate(90deg);
+    opacity: 0.9;
+  }
+  50% {
+    transform: translateY(50vh) translateX(-50px) rotate(180deg);
+    opacity: 0.8;
+  }
+  75% {
+    transform: translateY(75vh) translateX(75px) rotate(270deg);
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateY(105vh) translateX(0) rotate(360deg);
+    opacity: 0;
+  }
 }
 .venue:hover {
   transform: translateY(-10px) scale(1.03);

@@ -85,3 +85,28 @@ window.addEventListener('DOMContentLoaded', () => {
   setInterval(createConfetti, 3500);
   setInterval(createFallingBerries, 2000);
 });
+
+function createPetal() {
+    const petal = document.createElement('div');
+    petal.className = 'rose-petal';
+    petal.style.left = Math.random() * 100 + 'vw';
+    petal.style.animationDuration = (Math.random() * 3 + 3) + 's'; // Between 3-6s
+    petal.style.transform = `rotate(${Math.random() * 360}deg)`;
+    
+    document.querySelector('.falling-petals-container').appendChild(petal);
+    
+    // Remove petal after animation
+    setTimeout(() => {
+        petal.remove();
+    }, 6000);
+}
+
+// Create container if it doesn't exist
+if (!document.querySelector('.falling-petals-container')) {
+    const container = document.createElement('div');
+    container.className = 'falling-petals-container';
+    document.body.appendChild(container);
+}
+
+// Create petals periodically
+setInterval(createPetal, 300); // Creates a new petal every 300ms
